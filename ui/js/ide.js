@@ -20,7 +20,7 @@ function executeCode() {
 
     $.ajax({
 
-        url: "/ide/app/compiler.php",
+        url: "app/compiler.php",
 
         method: "POST",
 
