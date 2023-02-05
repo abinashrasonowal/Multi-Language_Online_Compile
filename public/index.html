@@ -10,7 +10,7 @@
  
 <body>
 
-    <div class="header">Online IDE </div>
+    <div class="header"><h2> Online IDE </h2></div>
     <div class="control-panel">
         Select Language:
         &nbsp; &nbsp;
@@ -24,24 +24,19 @@
         </select>
     </div>
 
-    <form>
         <div class="editor" id ="editor">
-        </div>
-    </form>
-       
+        </div>     
+        
+    <div class="inputbox">
+        <textarea class="input" id="input" >type your input if require or leave it
+        </textarea>  
+    </div>   
     <div class="button-container">
         <button class="btn" type="button" onclick="executeCode()"> Run </button>
     </div>
 
-    <div >
-        <form>
-            <textarea class="input" id="input" style="width: 99%; min-height: 50px;">type your input if require or leave it
-            </textarea>  
-        </form>      
-    </div>
-    
-    <div>
-        <textarea class="output" id="output" style="width: 99%; min-height: 500px;">output will be shown here  
+    <div class="container fixwidth">
+        <textarea class="output" id="output" >output will be shown here  
         </textarea>  
     </div>
 
