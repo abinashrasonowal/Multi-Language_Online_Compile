@@ -3,21 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Codeboard Online IDE</title>
+    <title>Online IDE</title>
 
     <link rel="stylesheet" href="ui/css/style.css" />
 </head>
  
 <body>
 
-    <div class="header"> Codeboard Online IDE </div>
+    <div class="header">Online IDE </div>
     <div class="control-panel">
         Select Language:
         &nbsp; &nbsp;
         <select id="languages" class="languages" onchange="changeLanguage()">
-            <option value="python"> Python </option>
             <option value="c"> C </option>
             <option value="cpp"> C++ </option>
+            <option value="python"> Python </option>
             <option value="php"> PHP </option>  
             <option value="java"> Java </option>
             <option value="node"> Node JS </option>
@@ -35,12 +35,13 @@
 
     <div >
         <form>
-            <input class="output"  type="text" id="input">
+            <textarea class="input" id="input" style="width: 99%; min-height: 50px;">type your input if require or leave it
+            </textarea>  
         </form>      
     </div>
     
     <div>
-        <textarea class="output2" id="output2" style="width: 99%; min-height: 500px;">output will be shown here  
+        <textarea class="output" id="output" style="width: 99%; min-height: 500px;">output will be shown here  
         </textarea>  
     </div>
 
@@ -48,7 +49,6 @@
     <script src="ui/js/lib/ace.js"></script>
     <script src="ui/js/lib/theme-monokai.js"></script>
     <script src="app/compiler.js"></script>
-
 </body>
 
 </html>

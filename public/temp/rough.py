@@ -1,8 +1,5 @@
-#include <iostream>
+#include <stdio.h>
 
 int main(){
-    int  t;
-    scanf("%d",&t);
-    printf("%d",t);
+	printf("Hellow world! welcome to online IDE");
 }
-        

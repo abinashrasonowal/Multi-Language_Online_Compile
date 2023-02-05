@@ -4,22 +4,32 @@ let editor;
 window.onload = function () {
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/c_cpp");
+    editor.session.setMode("ace/mode/c_cpp");//default c or cpp
 }
+
+const input = document.getElementById('input')
+output = document.getElementById('output');
+editor = document.getElementById('editor');
+editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
+
+let language = document.getElementById('languages');
+language=language.value
 
 function changeLanguage() {
 
     let language = $("#languages").val();
 
-    if (language == 'c' || language == 'cpp') editor.session.setMode("ace/mode/c_cpp");
-    else if (language == 'php') editor.session.setMode("ace/mode/php");
-    else if (language == 'python') editor.session.setMode("ace/mode/python");
-    else if (language == 'node') editor.session.setMode("ace/mode/javascript");
+    if (language == 'c' || language == 'cpp'){
+        editor.session.setMode("ace/mode/c_cpp");
+    } else if (language == 'php'){
+        editor.session.setMode("ace/mode/php");
+    } else if (language == 'python') {
+        editor.session.setMode("ace/mode/python");
+    }else if (language == 'node') {
+        editor.session.setMode("ace/mode/javascript");
+    }
 }
 
-const input = document.getElementById('input')
-output2 = document.getElementById('output2');
-editor = document.getElementById('editor');
 const url = 'http://localhost:8000/';
 
 input.value = "type your input here";
@@ -30,9 +40,9 @@ async function executeCode() {
             "content-type": 'application/json'
         },
         body: JSON.stringify({
-            language: $("#languages").val(),
-            editor1: editor.getSession().getValue(),
-            input: input.value
+            language: `${language}`,
+            editor: editor.getSession().getValue(),
+            input: input.innerHTML
         })
     })
 
@@ -40,5 +50,5 @@ async function executeCode() {
 
     const data = await res.json()
 
-    output2.innerHTML = data;
+    output.innerHTML = data;
 }
