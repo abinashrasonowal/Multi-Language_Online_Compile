@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "app": "nodemon server.js",
+    "app": "nodemon index.js",
     "test": "nodemon test.js",
     "tunnel": "lt --port 8000"
   },
