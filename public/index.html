@@ -7,10 +7,12 @@
 
     <link rel="stylesheet" href="ui/css/style.css" />
 </head>
- 
+
 <body>
 
-    <div class="header"><h2> Online IDE </h2></div>
+    <div class="header">
+        <h2> Online IDE </h2>
+    </div>
     <div class="control-panel">
         Select Language:
         &nbsp; &nbsp;
@@ -18,32 +20,40 @@
             <option value="c"> C </option>
             <option value="cpp"> C++ </option>
             <option value="python"> Python </option>
-            <option value="php"> PHP </option>  
+            <option value="php"> PHP </option>
             <option value="java"> Java </option>
             <option value="node"> Node JS </option>
         </select>
     </div>
 
-        <div class="editor" id ="editor">
-        </div>     
-        
-    <div class="inputbox">
-        <textarea class="input" id="input" >type your input if require or leave it
-        </textarea>  
-    </div>   
+    <div>
+        <div class="editor" id="editor"></div>
+        <div class="inputbox">
+            <textarea class="input" id="input">type your input here if required or leave it</textarea>
+        </div>
+    </div>
+
     <div class="button-container">
         <button class="btn" type="button" onclick="executeCode()"> Run </button>
     </div>
 
-    <div class="container fixwidth">
-        <textarea class="output" id="output" >output will be shown here  
-        </textarea>  
-    </div>
+        <div class="container">
+            <textarea class="outputbox" id="output">output will be desplaywed here
+            </textarea>
+        </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="ui/js/lib/ace.js"></script>
-    <script src="ui/js/lib/theme-monokai.js"></script>
-    <script src="app/compiler.js"></script>
+    <footer>
+        <div>
+            <p>
+                this is footer
+            </p>
+        </div>
+    </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="ui/js/lib/ace.js"></script>
+        <script src="ui/js/lib/theme-monokai.js"></script>
+        <script src="app/compiler.js"></script>
 </body>
 
 </html>

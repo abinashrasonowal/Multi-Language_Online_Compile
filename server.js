@@ -20,8 +20,8 @@ app.post('/', (req, res) => {
     const { editor } = req.body
     const { input } = req.body
 
-    console.log(language)
-    console.log(editor)
+    // console.log(language)
+    // console.log(editor)
     var code = editor;
 
     //if input of editor is empty
@@ -64,7 +64,7 @@ app.post('/', (req, res) => {
                     if (error) {
                         return  res.status(400).json(err)
                     } else {
-                        console.log(out);
+                        //console.log(out);
                         res.status(200).json(out);
                     }
                 })
@@ -77,7 +77,7 @@ app.post('/', (req, res) => {
                 console.log(stderr);
                 return res.status(400).json(stderr)
             } 
-            console.log(stdout);
+           // console.log(stdout);
         })
         x.stdout.on('data', (data) => {
             res.status(200).json(data)
