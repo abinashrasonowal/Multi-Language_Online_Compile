@@ -13,11 +13,12 @@ editor = document.getElementById('editor');
 editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 
 let language = document.getElementById('languages');
-language=language.value
+    language=language.value
 
 function changeLanguage() {
 
-    let language = $("#languages").val();
+    let language = document.getElementById('languages');
+    language=language.value
 
     if (language == 'c' || language == 'cpp'){
         editor.session.setMode("ace/mode/c_cpp");
@@ -28,6 +29,7 @@ function changeLanguage() {
     }else if (language == 'node') {
         editor.session.setMode("ace/mode/javascript");
     }
+
 }
 
 const url = 'http://localhost:8000/';
