@@ -12,13 +12,11 @@ output = document.getElementById('output');
 editor = document.getElementById('editor');
 editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 
-let language = document.getElementById('languages');
-    language=language.value
-
 function changeLanguage() {
+    // let language = document.getElementById('languages');
+    // language=language.value
 
-    let language = document.getElementById('languages');
-    language=language.value
+    language=$("#languages").val()
 
     if (language == 'c' || language == 'cpp'){
         editor.session.setMode("ace/mode/c_cpp");
@@ -29,13 +27,15 @@ function changeLanguage() {
     }else if (language == 'node') {
         editor.session.setMode("ace/mode/javascript");
     }
-
 }
 
 const url = 'http://localhost:8000/';
 
 input.value = "type your input here";
 async function executeCode() {
+    let language = document.getElementById('languages');
+    language=language.value
+
     const res = await fetch(url, {
         method: 'POST',
         headers: {
