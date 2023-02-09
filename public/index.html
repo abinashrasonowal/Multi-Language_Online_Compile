@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Online IDE</title>
-
     <link rel="stylesheet" href="ui/css/style.css" />
 </head>
 
@@ -13,47 +12,55 @@
     <div class="header">
         <h2> Online IDE </h2>
     </div>
-    <div class="control-panel">
+
+    <div class=" container1">
         Select Language:
         &nbsp; &nbsp;
-        <select id="languages" class="languages" onchange="changeLanguage()">
-            <option value="c"> C </option>
-            <option value="cpp"> C++ </option>
-            <option value="python"> Python </option>
-            <option value="php"> PHP </option>
-            <option value="java"> Java </option>
-            <option value="node"> Node JS </option>
-        </select>
-    </div>
-
-    <div>
-        <div class="editor" id="editor"></div>
-        <div class="inputbox">
-            <textarea class="input" id="input">type your input here if required or leave it</textarea>
+        <div class="select">
+            <div id="fild">
+                <div id="selected"><img src="./ui/images/c.png" alt="">&nbsp C</div>
+                <img id="arrow" src="./ui/images/arrow.png" alt="">
+            </div>
+            <div id="list" class="hide">
+                <li value='1' class="options"><img src="./ui/images/c.png" alt="">&nbsp C</li>
+                <li value="2" class="options"><img src="./ui/images/cpp.ico" alt="">&nbsp C++</li>
+                <li value="3" class="options"><img src="./ui/images/java.png" alt="">&nbsp Java</li>
+                <li value="4" class="options"><img src="./ui/images/php.png" alt="">&nbsp php</li>
+                <li value="5" class="options"><img src="./ui/images/python.png" alt="">&nbsp Python</li>
+                <li value="6" class="options"><img src="./ui/images/node.png" alt="">&nbsp Node Js</li>
+            </div>
         </div>
     </div>
 
-    <div class="button-container">
-        <button class="btn" type="button" onclick="executeCode()"> Run </button>
+    <div class="container">
+        <div class="container3">
+            <div class="editor" id="editor"></div>
+            <div class="inputbox">
+                <textarea class="input" id="input">type your input here if required or leave it</textarea>
+            </div>
+        </div>
+        <div onmouseover="dark()" onmouseout="light()" onclick="executeCode()" id="button-container">
+            <div class="btn">
+                <img src="./ui/images/run.png" alt="">&nbsp;
+                <p>RUN</p>
+            </div>
+        </div>
     </div>
 
-        <div class="container">
-            <textarea class="outputbox" id="output">output will be desplaywed here
+    <div class="container">
+        <textarea disabled class="outputbox" id="output">output will be desplaywed here
             </textarea>
-        </div>
+    </div>
 
     <footer>
         <div>
-            <p>
-                this is footer
-            </p>
         </div>
     </footer>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="ui/js/lib/ace.js"></script>
-        <script src="ui/js/lib/theme-monokai.js"></script>
-        <script src="app/compiler.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="ui/js/lib/ace.js"></script>
+    <script src="ui/js/lib/theme-monokai.js"></script>
+    <script src="app/compiler.js"></script>
 </body>
 
 </html>

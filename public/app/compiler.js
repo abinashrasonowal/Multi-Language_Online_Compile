@@ -1,7 +1,11 @@
 
 let editor;
 
+
+var btn = document.getElementById('button-container')
+
 window.onload = function () {
+    btn.classList.add("light")
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/c_cpp");//default c or cpp
@@ -12,12 +16,53 @@ output = document.getElementById('output');
 editor = document.getElementById('editor');
 editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 
-function changeLanguage() {
-    // let language = document.getElementById('languages');
-    // language=language.value
+var fild = document.getElementById('fild');
+var list = document.getElementById('list');
+var options = document.getElementsByClassName('options');
+var selected = document.getElementById('selected');
+var arrow = document.getElementById('arrow');
+var language='c';
 
-    language=$("#languages").val()
 
+function dark(){
+  btn.classList.toggle("light")
+  btn.classList.add("dark")
+}
+function light(){
+  btn.classList.toggle("dark")
+  btn.classList.add("light")
+}
+
+fild.onclick = function () {
+  list.classList.toggle("hide")
+  arrow.classList.toggle("arrow")
+}
+
+function value(x) {
+  switch (x) {
+    case (1): return 'c';
+    case (2): return 'cpp';
+    case (3): return 'java';
+    case (4): return 'php';
+    case (5): return 'python';
+    case (6): return 'node';
+    default: break;
+  }
+}
+
+for (option of options) {
+  option.onclick = function () {
+    selected.innerHTML = this.innerHTML;
+    language = value(this.value);
+    list.classList.toggle("hide")
+    arrow.classList.toggle("arrow")
+    //console.log(language);
+    changeLanguage(language)
+  }
+}
+
+function changeLanguage(language) {
+    //console.log(language)
     if (language == 'c' || language == 'cpp'){
         editor.session.setMode("ace/mode/c_cpp");
     } else if (language == 'php'){
@@ -31,18 +76,17 @@ function changeLanguage() {
 
 const url = 'http://localhost:8000/';
 
-input.value = "type your input here";
 async function executeCode() {
-    let language = document.getElementById('languages');
-    language=language.value
-
+    // let language = document.getElementById('languages');
+    // language=language.value
+    //console.log(language)
     const res = await fetch(url, {
         method: 'POST',
         headers: {
             "content-type": 'application/json'
         },
         body: JSON.stringify({
-            language: `${language}`,
+            language: language,
             editor: editor.getSession().getValue(),
             input: input.innerHTML
         })
@@ -54,3 +98,4 @@ async function executeCode() {
 
     output.innerHTML = data;
 }
+
