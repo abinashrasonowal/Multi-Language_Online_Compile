@@ -15,40 +15,57 @@ html{
     font-family: sans-serif;
 }
 
-.control-panel {
-    background: lightgray;
-    text-align: right;
-    padding: 4px;
-    font-family: sans-serif;
-}
-
-.languages {
-    background: white;
-    border: 1px solid gray;
-}
-
 #editor { 
-    float: left;
+    /* float: left; */
     width: 65%;
     height: 450px; 
     margin: 1%;
 }
 
-.button-container {
-    background-color: gray;
+.container{
     text-align: left;
-    padding: 2%;
-    
+    border: solid;  
+    border-width: 0.1px;
+    border-color: rgb(38, 28, 28);
+    align-items: center;
+}
+.container3{
+    display: flex;
+    border-width: 0.1px;
+    border-color: rgb(38, 28, 28);
+    align-items: center;
 }
 
-.btn {
-    border-radius: 2%;
-    background: #034f06;
-    color: white;
-    padding: 8px;
-    margin-right: 2%;
-    border: 0;
+#button-container {
+    /* background-color: rgb(40, 247, 40); */
+    margin: 15px;
+    width: fit-content;
+    text-align: center;
+    border: solid;  
+    border-width: 0.1px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
+
+.btn{
+    margin: auto;
+    padding: 3px;
+    width: 100%;
+    display: flex;
+}
+
+.btn img{
+    width: 20px;
+}
+
+.dark{
+    background-color:rgb(7, 100, 2) ;
+}
+.light{
+    background-color: rgb(19, 238, 8);
+}
+
 
 .input {
     border-radius: 2%;
@@ -63,7 +80,7 @@ html{
     border-radius: 2%;
     height: 450px;
     width: 31%; 
-    float: right;
+    /* float: right; */
     margin: 1%;
 }
 .outputbox{
@@ -83,5 +100,81 @@ html{
 }
 
 .container{
-    background-color: gray;
+    margin: 1px;
+    padding: 2px;
 }
+
+.container1{
+    justify-content: end;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    margin: 1px;
+    padding-right: 5%;
+}
+
+.select{
+     width: 16%;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+#selected{
+    align-items: center;
+    display: flex; 
+    padding-left: 4%; 
+}
+
+#fild{
+    width: 94%;
+    box-sizing: border-box; 
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+#fild img{
+    width: 20px;
+}
+
+#list{
+    justify-content: left;
+    position: absolute;
+    width: 13%;
+    border-radius: 10%;
+    margin-top: 2px;
+    padding: 1%;
+    overflow: hidden;
+    background-color: aliceblue;
+}
+
+.options{
+    position: relative;
+    width:100%;
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.options img{
+    width: 20px;
+}
+
+.options:hover{
+    background-color: rgb(50, 52, 52);
+}
+
+.hide{
+    display: none;
+}
+
+.arrow{
+    transform: rotate(180deg);
+}
+
