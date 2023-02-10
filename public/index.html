@@ -36,22 +36,46 @@
         <div class="container3">
             <div class="editor" id="editor"></div>
             <div class="inputbox">
-                <textarea class="input" id="input">type your input here if required or leave it</textarea>
+                <textarea class="input" id="input">
+                </textarea>
+                <span>
+                    type your input here if required or leave it
+                </span>
             </div>
         </div>
-        <div onmouseover="dark()" onmouseout="light()" onclick="executeCode()" id="button-container">
-            <div class="btn">
-                <img src="./ui/images/run.png" alt="">&nbsp;
-                <p>RUN</p>
+
+        <div class="container">
+            <div onmouseover="dark()" onmouseout="light()" onclick="executeCode()" id="button-container">
+                <div class="btn">
+                    <img src="./ui/images/run.png" alt="">&nbsp;
+                    <p>RUN</p>
+                </div>
             </div>
         </div>
+       
     </div>
 
-    <div class="container">
-        <textarea disabled class="outputbox" id="output">output will be desplaywed here
-            </textarea>
+    <div class="container">       
+        <div  style="display: flex;" class="container4">   
+            <div style="margin-left: 1%;" >
+                <button class="btn" onclick="copy()">copy</button>
+            </div>
+                 
+            <div style="margin-left: 1%;" >
+                <button  class="btn"  onclick="clearout()">clear</button>
+            </div>
+            <div class="hide" id="message">
+                <div class="alert">
+                output copied!
+                </div> 
+            </div>
+        </div>
+       
+        <textarea disabled class="outputbox" id="output">
+        </textarea>
     </div>
 
+    
     <footer>
         <div>
         </div>
