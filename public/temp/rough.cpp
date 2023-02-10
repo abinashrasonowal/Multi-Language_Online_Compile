@@ -1,8 +1,5 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <stdio.h>
 
 int main(){
-    cout<<"he llow";
+	printf("Hellow world!   welcome to online IDE");
 }
-

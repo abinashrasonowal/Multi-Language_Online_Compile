@@ -3,18 +3,21 @@ let editor;
 
 
 var btn = document.getElementById('button-container')
+const input = document.getElementById('input')
+output = document.getElementById('output');
+editor = document.getElementById('editor');
+message=document.getElementById('message')
+
+editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
+output.textContent='output will be shown here'
 
 window.onload = function () {
     btn.classList.add("light")
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/c_cpp");//default c or cpp
+   
 }
-
-const input = document.getElementById('input')
-output = document.getElementById('output');
-editor = document.getElementById('editor');
-editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 
 var fild = document.getElementById('fild');
 var list = document.getElementById('list');
@@ -38,6 +41,10 @@ fild.onclick = function () {
   arrow.classList.toggle("arrow")
 }
 
+list.onmouseleave=function(){
+  list.classList.add('hide')
+  arrow.classList.toggle("arrow")
+}
 function value(x) {
   switch (x) {
     case (1): return 'c';
@@ -61,6 +68,20 @@ for (option of options) {
   }
 }
 
+function copy(){
+  console.log('copy');
+  navigator.clipboard.writeText(output.textContent)
+  message.classList.toggle('hide')
+  setTimeout(()=>{
+    message.classList.add('hide')
+  },2000)
+}
+
+function clearout(){
+  console.log('clear');
+  output.textContent='';
+}
+
 function changeLanguage(language) {
     //console.log(language)
     if (language == 'c' || language == 'cpp'){
@@ -80,6 +101,8 @@ async function executeCode() {
     // let language = document.getElementById('languages');
     // language=language.value
     //console.log(language)
+    document.getElementById( 'output' ).scrollIntoView();
+
     const res = await fetch(url, {
         method: 'POST',
         headers: {
