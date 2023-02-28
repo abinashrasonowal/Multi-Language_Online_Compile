@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const app = express();
 
-const port = 8000;
+const port = 8080;
 
 app.use(express.static('public'))
 app.use(cors());
@@ -23,6 +23,7 @@ app.post('/', (req, res) => {
     console.log(language)
     console.log(editor)
     var code = editor;
+    console.log(input)
 
     //if input of editor is empty
     if (!editor) {
@@ -61,7 +62,7 @@ app.post('/', (req, res) => {
                 console.log(stderr)
                 return res.status(400).json(stderr)
             } else {
-                y = cp.execFile('./a.exe', (error, out, err) => {
+              let  y = cp.execFile('./a.exe', (error, out, err) => {
                     if (error) {
                         return  res.status(400).json(err)
                     } else {

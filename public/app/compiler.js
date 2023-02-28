@@ -95,12 +95,13 @@ function changeLanguage(language) {
     }
 }
 
-const url = 'http://localhost:8000/';
+const url = 'http://trying-brochures.at.ply.gg:11487/';
 
 async function executeCode() {
     // let language = document.getElementById('languages');
     // language=language.value
     //console.log(language)
+    console.log(input.value)
     document.getElementById( 'output' ).scrollIntoView();
 
     const res = await fetch(url, {
@@ -111,10 +112,9 @@ async function executeCode() {
         body: JSON.stringify({
             language: language,
             editor: editor.getSession().getValue(),
-            input: input.innerHTML
+            input: input.value
         })
     })
-
     console.log(res);
 
     const data = await res.json()

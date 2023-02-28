@@ -7,7 +7,7 @@
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *     * Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
+ *       notice, this list of conditions and the following disclaimer.m
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
@@ -183,8 +183,6 @@ if (typeof Element != "undefined" && !Element.prototype.remove) {
         value: function() { this.parentNode && this.parentNode.removeChild(this); }
     });
 }
-
-
 });
 
 define("ace/lib/useragent",["require","exports","module"], function(require, exports, module) {

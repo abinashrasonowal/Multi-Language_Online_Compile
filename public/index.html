@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://requirejs.org/docs/release/2.3.6/comments/require.js"></script>
     <meta charset="UTF-8">
     <title>Online IDE</title>
     <link rel="stylesheet" href="ui/css/style.css" />
@@ -36,11 +37,8 @@
         <div class="container3">
             <div class="editor" id="editor"></div>
             <div class="inputbox">
-                <textarea class="input" id="input">
-                </textarea>
-                <span>
-                    type your input here if required or leave it
-                </span>
+                <textarea class="input" 
+                id="input" placeholder="type your input here if required or leave it"></textarea>       
             </div>
         </div>
 
@@ -52,30 +50,29 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 
-    <div class="container">       
-        <div  style="display: flex;" class="container4">   
-            <div style="margin-left: 1%;" >
+    <div class="container">
+        <div style="display: flex;" class="container4">
+            <div style="margin-left: 1%;">
                 <button class="btn" onclick="copy()">copy</button>
             </div>
-                 
-            <div style="margin-left: 1%;" >
-                <button  class="btn"  onclick="clearout()">clear</button>
+
+            <div style="margin-left: 1%;">
+                <button class="btn" onclick="clearout()">clear</button>
             </div>
             <div class="hide" id="message">
                 <div class="alert">
-                output copied!
-                </div> 
+                    output copied!
+                </div>
             </div>
         </div>
-       
+
         <textarea disabled class="outputbox" id="output">
         </textarea>
     </div>
 
-    
     <footer>
         <div>
         </div>
