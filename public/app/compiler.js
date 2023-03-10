@@ -96,8 +96,8 @@ function changeLanguage(language) {
 }
 
 let url;
-//url = 'http://localhost:3000/'; //for see in local host
-url = 'https://wild-teal-eel-boot.cyclic.app'// for cyclic
+url = 'http://localhost:3000/'; 
+
 
 
 async function executeCode() {
