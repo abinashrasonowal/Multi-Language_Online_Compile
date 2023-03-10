@@ -1,12 +1,9 @@
 
-let editor;
-
-
-var btn = document.getElementById('button-container')
+let editor = document.getElementById('editor');
+const btn = document.getElementById('button-container')
 const input = document.getElementById('input')
-output = document.getElementById('output');
-editor = document.getElementById('editor');
-message=document.getElementById('message')
+const output = document.getElementById('output');
+const message=document.getElementById('message')
 
 editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 output.textContent='output will be shown here'
@@ -15,8 +12,7 @@ window.onload = function () {
     btn.classList.add("light")
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/c_cpp");//default c or cpp
-   
+    editor.session.setMode("ace/mode/c_cpp");
 }
 
 var fild = document.getElementById('fild');
@@ -45,6 +41,7 @@ list.onmouseleave=function(){
   list.classList.add('hide')
   arrow.classList.toggle("arrow")
 }
+
 function value(x) {
   switch (x) {
     case (1): return 'c';
@@ -95,7 +92,8 @@ function changeLanguage(language) {
     }
 }
 
-const url = 'http://trying-brochures.at.ply.gg:11487/';
+//const url = 'http://trying-brochures.at.ply.gg:11487/';
+const url= "http://localhost:3000/"
 
 async function executeCode() {
     // let language = document.getElementById('languages');

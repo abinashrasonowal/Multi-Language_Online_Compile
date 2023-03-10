@@ -5,14 +5,14 @@ const fs = require('fs');
 
 const app = express();
 
-const port = 8080;
+const port = 3000;
 
 app.use(express.static('public'))
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile('C:/Users/abina/Desktop/ide/public/ide.html');
+    res.sendFile('C:/Users/abina/github/online_ide/public/index.html');
 })
 
 app.post('/', (req, res) => {
@@ -22,9 +22,9 @@ app.post('/', (req, res) => {
 
     console.log(language)
     console.log(editor)
-    var code = editor;
     console.log(input)
-
+    var code = editor;
+   
     //if input of editor is empty
     if (!editor) {
         return res.status(400).json('please write your code')

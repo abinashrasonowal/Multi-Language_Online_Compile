@@ -1,9 +1,5 @@
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 int main(){
-    int n,m;
-    cin>>n>>m;
-    cout<<n+m;
+	printf("Hellow world! welcome to online IDE");
 }
