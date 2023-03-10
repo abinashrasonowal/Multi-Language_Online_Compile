@@ -4,8 +4,8 @@
 
 Built using:
 
-- Front-end : HTML,CSS,Js
-- Back-end :NodeJs 
+- Front-end : HTML,CSS,Js, ace(for syntax colouring and autocomplit)
+- Back-end : NodeJs 
 
  you can run app:
 
