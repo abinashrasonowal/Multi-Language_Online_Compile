@@ -4,7 +4,7 @@
 
 Built using:
 
-- Front-end : HTML,CSS,Js, ace(for syntax colouring and autocomplit)
+- Front-end : HTML,CSS,Js, ace(for syntax colouring and autocomplete)
 - Back-end : NodeJs 
 
  you can run app:
