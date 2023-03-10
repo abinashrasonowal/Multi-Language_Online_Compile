@@ -95,7 +95,7 @@ function changeLanguage(language) {
     }
 }
 
-const url = 'http://localhost:8000/';
+const url = 'http://localhost:3000/';
 
 async function executeCode() {
     // let language = document.getElementById('languages');
