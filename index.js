@@ -34,17 +34,18 @@ app.post('/', (req, res) => {
 
     let x;
     //input from file
-    fs.writeFile('input.txt', input, (err, fd) => {
+    fs.writeFile(`public/temp/input.txt`, input, (err, fd) => {
         if (err) console.log(err);
     })
-    const inputstream = fs.createReadStream("input.txt");
+
+    const inputstream = fs.createReadStream(`public/temp/input.txt`);
 
     //cases for different language
     switch (language) {
         case ('c'): command = 'gcc'; break;
         case ('cpp'): command = 'g++'; break;
         case ('python'): path = `public/temp/rough.py`; break;
-        case ('node'): path = `public/temp/rough.js`;break;
+        case ('node'): path = `public/temp/rough.js`; break;
         default: break;
     }
 
@@ -56,14 +57,15 @@ app.post('/', (req, res) => {
     })
     //exicute code through chile process
     if (language == 'c' || language == 'cpp') {
-        cp.execFile(command, [path], (error, stdout, stderr) => {
+
+        cp.execFile(command, ["rough.c"],{cwd: `./public/temp`}, (error, stdout, stderr) => {
             if (error) {
                 console.log(stderr)
                 return res.status(400).json(stderr)
             } else {
-                y = cp.execFile('./a.exe', (error, out, err) => {
+                y = cp.execFile('./public/temp/a.exe', (error, out, err) => {
                     if (error) {
-                        return  res.status(400).json(err)
+                        return res.status(400).json(err)
                     } else {
                         console.log(out);
                         res.status(200).json(out);
@@ -77,7 +79,7 @@ app.post('/', (req, res) => {
             if (error) {
                 console.log(stderr);
                 return res.status(400).json(stderr)
-            } 
+            }
             console.log(stdout);
         })
         x.stdout.on('data', (data) => {
