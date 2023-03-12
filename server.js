@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile('C:/Users/abina/Desktop/ide/public/ide.html');
+    res.sendFile('C:/Users/abina/Desktop/ide/public/index.html');
 })
 
 app.post('/', (req, res) => {
@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
 
     console.log(language)
     console.log(editor)
-    var code = editor;
+    console.log(input)
 
     //if input of editor is empty
     if (!editor) {
@@ -32,10 +32,9 @@ app.post('/', (req, res) => {
     let path = `public/temp/rough.${language}`
     let command = `${language}`
 
-    let x;
     //input from file
     fs.writeFile(`public/temp/input.txt`, input, (err, fd) => {
-        if (err) console.log(err);
+        if (err) console.log(err)
     })
 
     const inputstream = fs.createReadStream(`public/temp/input.txt`);
@@ -50,20 +49,21 @@ app.post('/', (req, res) => {
     }
 
     //writing code into required destination
-    fs.writeFile(path, code, (err, fd) => {
+    fs.writeFile(path, editor, (err, fd) => {
         if (err) {
             console.log(err);
         }
     })
+
     //exicute code through chile process
     if (language == 'c' || language == 'cpp') {
 
-        cp.execFile(command, ["rough.c"],{cwd: `./public/temp`}, (error, stdout, stderr) => {
+        cp.execFile(command, ["rough.c"],{cwd: `public/temp`}, (error, stdout, stderr) => {
             if (error) {
                 console.log(stderr)
                 return res.status(400).json(stderr)
             } else {
-                y = cp.execFile('./public/temp/a.exe', (error, out, err) => {
+                y = cp.execFile('public/temp/a.exe', (error, out, err) => {
                     if (error) {
                         return res.status(400).json(err)
                     } else {

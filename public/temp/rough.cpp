@@ -1,5 +1,9 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 int main(){
-	printf("Hellow world!   welcome to online IDE");
+    int x;
+    cin>>x;
+    cout<<x;
 }

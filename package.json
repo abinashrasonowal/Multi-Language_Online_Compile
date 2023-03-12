@@ -1,8 +1,6 @@
 {
   "scripts": {
-    "app": "nodemon index.js",
-    "test": "nodemon test.js",
-    "tunnel": "lt --port 8000"
+    "app": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,7 +12,7 @@
   },
   "name": "ide",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "keywords": [],
   "author": "",
   "license": "ISC",

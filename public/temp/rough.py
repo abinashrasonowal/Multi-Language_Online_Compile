@@ -1,1 +1,2 @@
-print('hellow')
+x=input()
+print(x)

@@ -1,12 +1,11 @@
 
 let editor;
-
+editor = document.getElementById('editor');
 
 var btn = document.getElementById('button-container')
 const input = document.getElementById('input')
-output = document.getElementById('output');
-editor = document.getElementById('editor');
-message=document.getElementById('message')
+const output = document.getElementById('output');
+const message=document.getElementById('message')
 
 editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 output.textContent='output will be shown here'
@@ -63,7 +62,6 @@ for (option of options) {
     language = value(this.value);
     list.classList.toggle("hide")
     arrow.classList.toggle("arrow")
-    //console.log(language);
     changeLanguage(language)
   }
 }
@@ -99,12 +97,12 @@ let url;
 url = 'http://localhost:3000/'; 
 
 
-
 async function executeCode() {
+
     // let language = document.getElementById('languages');
     // language=language.value
     //console.log(language)
-    document.getElementById( 'output' ).scrollIntoView();
+    document.getElementById('output').scrollIntoView();
 
     const res = await fetch(url, {
         method: 'POST',
@@ -114,7 +112,7 @@ async function executeCode() {
         body: JSON.stringify({
             language: language,
             editor: editor.getSession().getValue(),
-            input: input.innerHTML
+            input: input.value
         })
     })
 
