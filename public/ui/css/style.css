@@ -1,9 +1,11 @@
 *{
-    margin: 0;
+    margin:0;
 }
 
-html{
-    font-size: x-large;
+body{
+    padding: 5%;
+    padding-top: 0%;
+    background: linear-gradient(to bottom,rgb(122, 122, 236),rgb(121, 248, 121));
 }
 
 .header {
@@ -13,38 +15,49 @@ html{
     color: white;
     padding: 4px;
     font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2%;
 }
 
 #editor { 
     font-size: large;
-    /* float: left; */
-    width: 65%;
+    width: 100%;
     height: 450px; 
-    /* margin: 1%; */
+    z-index: 1;
 }
 
 .container{
+    margin: 1px;
+    padding: 2px;
     text-align: left;
-    border: solid;  
-    border-width: 1px;
-    border-color: rgb(38, 28, 28);
-    align-items: center;
-}
-.container3{
-    display: flex;
-    border-width: 0.1px;
-    justify-content: space-between;
-    /* border: solid; */
-    border-color: rgb(38, 28, 28);
+    background-color: aliceblue;
     align-items: center;
 }
 
+.container2{
+    background-color: aliceblue;
+    justify-content: right;
+    margin: 2px
+}
+
+.container3{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container5{
+    justify-content: space-between;
+    display: flex;
+    width: 48%;
+    margin: 2px;
+}
+
 #button-container {
-    /* background-color: rgb(40, 247, 40); */
     margin-left: 15px;
     width: fit-content;
     text-align: center;
-    border: solid;  
     border-width: 1px;
     display: flex;
     align-items: center;
@@ -63,49 +76,27 @@ html{
 }
 
 .dark{
-    background-color:rgb(7, 100, 2) ;
+    background-color:#006400 ;
 }
 .light{
-    background-color: rgb(19, 238, 8);
+    background-color: #02f802;
 }
 
-
-.input {
-    font-size: large;
-    background-color: rgb(45, 45, 45);
-    color: aliceblue;
-    height: 98%;
+.input-output-box{
+    height: 450px;
     width: 100%;
 }
 
-.inputbox{
-    height: 450px;
-    width: 31%; 
-    /* float: right; */
-    margin-right: 1%; 
-}
-
-.outputbox{
-    font-size: large;
-    background-color:rgb(45, 45, 45);
+.input-output {
+    background-color: rgb(45, 45, 45);
     color: aliceblue;
-    border-radius: 2%;
-    height: 500px;
-    width: 31%; 
-    margin-left: 1%;
+    height: 98%;
+    width: 98%;
 }
 
-.container{
-    margin: 1px;
-    padding: 2px;
-}
-
-.container1{
-    justify-content: end;
-    padding: 1px;
+.language_change{
+    justify-content: end;  
     display: flex;
-    align-items: center;
-    margin: 1px;
     padding-right: 5%;
 }
 
@@ -117,6 +108,7 @@ html{
 }
 
 #selected{
+    padding: 1px;
     display: flex; 
     padding-left: 4%; 
     align-items: center;
@@ -140,12 +132,13 @@ html{
 #list{
     justify-content: left;
     position: absolute;
-    width: 17%;
-    border-radius: 10%;
+    width: 15%;
+    border-radius: 5%;
     margin-top: 2px;
     padding: 1%;
     overflow: hidden;
     background-color: aliceblue;
+    z-index: 2;
 }
 
 .options{
@@ -186,8 +179,13 @@ html{
     background-color: azure;
     border-radius: 6px;
     margin-left: 1%;
-    border: solid;
     border-width: 1px;
     padding-left: 5px;
     padding-right: 5px;  
 }
+
+.footer{
+    padding: 20px;
+    background-color: rgb(49, 49, 49);
+}
+

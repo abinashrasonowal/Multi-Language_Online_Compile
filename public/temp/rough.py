@@ -1,2 +1,6 @@
 x=input()
-print(x)
+y=input()
+x=int(x)
+y=int(y)
+print(y)
+print(x+y)

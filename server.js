@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile('C:/Users/abina/Desktop/ide/public/index.html');
+    res.sendFile(__dirname+'/public/','index.html');
 })
 
 app.post('/', (req, res) => {
@@ -88,6 +88,6 @@ app.post('/', (req, res) => {
         inputstream.pipe(x.stdin);
     }
 })
-
+  
 app.listen(port, () => console.log(`server is running on port ${port}`))
 

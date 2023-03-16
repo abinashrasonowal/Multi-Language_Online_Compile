@@ -14,8 +14,11 @@ window.onload = function () {
     btn.classList.add("light")
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/c_cpp");//default c or cpp
-   
+    editor.session.setMode("ace/mode/c_cpp");//default c or cpp  
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 }
 
 var fild = document.getElementById('fild');
@@ -24,7 +27,6 @@ var options = document.getElementsByClassName('options');
 var selected = document.getElementById('selected');
 var arrow = document.getElementById('arrow');
 var language='c';
-
 
 function dark(){
   btn.classList.toggle("light")
@@ -67,7 +69,6 @@ for (option of options) {
 }
 
 function copy(){
-  console.log('copy');
   navigator.clipboard.writeText(output.textContent)
   message.classList.toggle('hide')
   setTimeout(()=>{
@@ -76,8 +77,13 @@ function copy(){
 }
 
 function clearout(){
-  console.log('clear');
   output.textContent='';
+}
+
+
+function pastein(){
+  navigator.clipboard.readText().then( cliptext => (document.getElementById('input').innerText=cliptext),
+  err =>console.log(err))
 }
 
 function changeLanguage(language) {
