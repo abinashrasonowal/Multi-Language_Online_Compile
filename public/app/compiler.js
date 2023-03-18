@@ -12,7 +12,7 @@ editor.innerHTML = '#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world!
 window.onload = function () {
   btn.classList.add("light")
   editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
+  editor.setTheme("ace/theme/chrome");
   editor.session.setMode("ace/mode/c_cpp");//default c or cpp  
 }
 
@@ -82,6 +82,23 @@ function clearout() {
 function pastein() {
   navigator.clipboard.readText().then(cliptext => (document.getElementById('input').innerText = cliptext),
     err => console.log(err))
+}
+
+function changetheme() {
+  let theme = document.getElementById("theme").value
+  input.classList.add('input-output-dark')
+  output.classList.add('input-output-dark')
+  if (theme == "light"){
+    editor.setTheme("ace/theme/chrome")
+    input.classList.toggle('input-output-dark')
+    output.classList.toggle('input-output-dark')
+  }
+  else if (theme == "monokai"){
+    editor.setTheme("ace/theme/monokai")
+  } 
+  else if(theme == "tomorrow_night"){
+    editor.setTheme("ace/theme/tomorrow_night")
+  } 
 }
 
 function changeLanguage(language) {

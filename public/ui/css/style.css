@@ -32,12 +32,12 @@ body{
     margin: 1px;
     padding: 2px;
     text-align: left;
-    background-color: aliceblue;
+    background-color: rgb(253, 250, 213);
     align-items: center;
 }
 
 .container2{
-    background-color: aliceblue;
+    background-color: rgb(253, 250, 213);
     justify-content: right;
     margin: 2px
 }
@@ -88,10 +88,13 @@ body{
 }
 
 .input-output {
-    background-color: rgb(45, 45, 45);
-    color: aliceblue;
     height: 98%;
     width: 98%;
+}
+
+.input-output-dark{
+    background-color: #2F3129;
+    color: aliceblue;
 }
 
 .language_change{
