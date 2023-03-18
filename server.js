@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'/public/','index.html');
+    res.sendFile(__dirname,'/public/index.html');
 })
 
 app.post('/', (req, res) => {
@@ -20,9 +20,9 @@ app.post('/', (req, res) => {
     const { editor } = req.body
     const { input } = req.body
 
-    console.log(language)
-    console.log(editor)
-    console.log(input)
+    // console.log(language)
+    // console.log(editor)
+    // console.log(input)
 
     //if input of editor is empty
     if (!editor) {
@@ -34,31 +34,34 @@ app.post('/', (req, res) => {
 
     //input from file
     fs.writeFile(`public/temp/input.txt`, input, (err, fd) => {
-        if (err) console.log(err)
+        if (err) {
+            console.log(err)
+            return res.status(400).json(err)
+        }
     })
 
     const inputstream = fs.createReadStream(`public/temp/input.txt`);
-
-    //cases for different language
-    switch (language) {
-        case ('c'): command = 'gcc'; break;
-        case ('cpp'): command = 'g++'; break;
-        case ('python'): path = `public/temp/rough.py`; break;
-        case ('node'): path = `public/temp/rough.js`; break;
-        default: break;
-    }
 
     //writing code into required destination
     fs.writeFile(path, editor, (err, fd) => {
         if (err) {
             console.log(err);
+            return res.status(400).json(err)
         }
     })
 
+    //cases for different language
+    switch (language) {
+        case ('c'): command = 'gcc'; path = 'rough.c'; break;
+        case ('cpp'): command = 'g++'; path = 'rough.cpp'; break;
+        case ('python'): path = `public/temp/rough.py`; break;
+        case ('node'): path = `public/temp/rough.js`; break;
+        default: break;
+    }
+
     //exicute code through chile process
     if (language == 'c' || language == 'cpp') {
-
-        cp.execFile(command, ["rough.c"],{cwd: `public/temp`}, (error, stdout, stderr) => {
+        cp.execFile(command, [path], { cwd: `public/temp` }, (error, stdout, stderr) => {
             if (error) {
                 console.log(stderr)
                 return res.status(400).json(stderr)
@@ -67,7 +70,7 @@ app.post('/', (req, res) => {
                     if (error) {
                         return res.status(400).json(err)
                     } else {
-                        console.log(out);
+                        // console.log(out);
                         res.status(200).json(out);
                     }
                 })
@@ -80,7 +83,7 @@ app.post('/', (req, res) => {
                 console.log(stderr);
                 return res.status(400).json(stderr)
             }
-            console.log(stdout);
+            //console.log(stdout);
         })
         x.stdout.on('data', (data) => {
             res.status(200).json(data)
@@ -88,6 +91,6 @@ app.post('/', (req, res) => {
         inputstream.pipe(x.stdin);
     }
 })
-  
+
 app.listen(port, () => console.log(`server is running on port ${port}`))
 

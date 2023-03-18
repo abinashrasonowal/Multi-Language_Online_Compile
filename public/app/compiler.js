@@ -5,16 +5,15 @@ editor = document.getElementById('editor');
 var btn = document.getElementById('button-container')
 const input = document.getElementById('input')
 const output = document.getElementById('output');
-const message=document.getElementById('message')
+const message = document.getElementById('message')
 
-editor.innerHTML='#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
-output.textContent='output will be shown here'
+editor.innerHTML = '#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
 
 window.onload = function () {
-    btn.classList.add("light")
-    editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/c_cpp");//default c or cpp  
+  btn.classList.add("light")
+  editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/c_cpp");//default c or cpp  
 }
 
 window.onbeforeunload = function () {
@@ -26,13 +25,13 @@ var list = document.getElementById('list');
 var options = document.getElementsByClassName('options');
 var selected = document.getElementById('selected');
 var arrow = document.getElementById('arrow');
-var language='c';
+var language = 'c';
 
-function dark(){
+function dark() {
   btn.classList.toggle("light")
   btn.classList.add("dark")
 }
-function light(){
+function light() {
   btn.classList.toggle("dark")
   btn.classList.add("light")
 }
@@ -42,7 +41,7 @@ fild.onclick = function () {
   arrow.classList.toggle("arrow")
 }
 
-list.onmouseleave=function(){
+list.onmouseleave = function () {
   list.classList.add('hide')
   arrow.classList.toggle("arrow")
 }
@@ -68,64 +67,64 @@ for (option of options) {
   }
 }
 
-function copy(){
+function copy() {
   navigator.clipboard.writeText(output.textContent)
   message.classList.toggle('hide')
-  setTimeout(()=>{
+  setTimeout(() => {
     message.classList.add('hide')
-  },2000)
+  }, 2000)
 }
 
-function clearout(){
-  output.textContent='';
+function clearout() {
+  output.textContent = '';
 }
 
-
-function pastein(){
-  navigator.clipboard.readText().then( cliptext => (document.getElementById('input').innerText=cliptext),
-  err =>console.log(err))
+function pastein() {
+  navigator.clipboard.readText().then(cliptext => (document.getElementById('input').innerText = cliptext),
+    err => console.log(err))
 }
 
 function changeLanguage(language) {
-    //console.log(language)
-    if (language == 'c' || language == 'cpp'){
-        editor.session.setMode("ace/mode/c_cpp");
-    } else if (language == 'php'){
-        editor.session.setMode("ace/mode/php");
-    } else if (language == 'python') {
-        editor.session.setMode("ace/mode/python");
-    }else if (language == 'node') {
-        editor.session.setMode("ace/mode/javascript");
-    }
+  //console.log(language)
+  if (language == 'c' || language == 'cpp') {
+    editor.setValue('rgtrhtyjyu')
+    editor.session.setMode("ace/mode/c_cpp");
+  } else if (language == 'php') {
+    editor.session.setMode("ace/mode/php");
+  } else if (language == 'python') {
+    editor.session.setMode("ace/mode/python");
+  } else if (language == 'node') {
+    editor.session.setMode("ace/mode/javascript");
+  }
 }
 
 let url;
-url = 'http://localhost:3000/'; 
+url = 'http://localhost:3000/';
 
 
 async function executeCode() {
 
-    // let language = document.getElementById('languages');
-    // language=language.value
-    //console.log(language)
-    document.getElementById('output').scrollIntoView();
+  // let language = document.getElementById('languages');
+  // language=language.value
+  //console.log(language)
 
-    const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-            "content-type": 'application/json'
-        },
-        body: JSON.stringify({
-            language: language,
-            editor: editor.getSession().getValue(),
-            input: input.value
-        })
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      "content-type": 'application/json'
+    },
+    body: JSON.stringify({
+      language: language,
+      editor: editor.getSession().getValue(),
+      input: input.value
     })
+  })
 
-    console.log(res);
+  console.log(res);
 
-    const data = await res.json()
+  const data = await res.json()
+  if (data) document.getElementById('output').scrollIntoView();
 
-    output.innerHTML = data;
+  output.innerHTML = data;
 }
 
