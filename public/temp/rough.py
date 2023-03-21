@@ -1,4 +1,1 @@
-x=input()
-y=input()
-print(x)
-print(y)
+print("Hellow world! welcome to online IDE")

@@ -7,14 +7,39 @@ const input = document.getElementById('input')
 const output = document.getElementById('output');
 const message = document.getElementById('message')
 
-editor.innerHTML = '#include &ltstdio.h>\n\nint main(){\n\tprintf("Hellow world! welcome to online IDE");\n}'
+var Hellow = {
+  c: '#include <stdio.h>\n\n' +
+    'int main()\n' +
+    '{\n\tprintf("Hellow world! welcome to online IDE");\n}',
+
+  cpp: '#include<bits/stdc++.h>\n\n' +
+    'using namespace std;\n' +
+    'int main()\n' +
+    '{\n\tcout<<"Hellow world! welcome to online IDE";\n}',
+  python: 'print("Hellow world! welcome to online IDE")',
+  node: 'console.log("Hellow world! welcome to online IDE");',
+  java: 'public class Main\n' +
+    '{\n' +
+    '\tpublic static void main(String[] args) {\n' +
+    '\t\tSystem.out.println("Hellow world! welcome to online IDE");\n' +
+    '\t}\n' +
+    '}',
+  php: '<?php\n' +
+    'echo "Hellow world! welcome to online IDE";'
+};
+
+
+// import { Hellow } from "./hellow.js";
+
 
 window.onload = function () {
   btn.classList.add("light")
   editor = ace.edit("editor");
   editor.setTheme("ace/theme/chrome");
+  editor.setValue(Hellow.c)
   editor.session.setMode("ace/mode/c_cpp");//default c or cpp  
 }
+
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -57,6 +82,7 @@ function value(x) {
   }
 }
 
+let option;
 for (option of options) {
   option.onclick = function () {
     selected.innerHTML = this.innerHTML;
@@ -85,33 +111,40 @@ function pastein() {
 }
 
 function changetheme() {
-  let theme = document.getElementById("theme").value
-  input.classList.add('input-output-dark')
-  output.classList.add('input-output-dark')
-  if (theme == "light"){
+  theme= document.getElementById('theme').value
+  if (theme == 0) {
+    editor.setTheme("ace/theme/monokai")
+    input.classList.add('input-output-dark')
+    output.classList.add('input-output-dark')
+    document.getElementById('theme').setAttribute('value',1)
+  } else {
     editor.setTheme("ace/theme/chrome")
     input.classList.toggle('input-output-dark')
     output.classList.toggle('input-output-dark')
+    document.getElementById('theme').setAttribute('value',0)
   }
-  else if (theme == "monokai"){
-    editor.setTheme("ace/theme/monokai")
-  } 
-  else if(theme == "tomorrow_night"){
-    editor.setTheme("ace/theme/tomorrow_night")
-  } 
 }
 
 function changeLanguage(language) {
   //console.log(language)
   if (language == 'c' || language == 'cpp') {
-    editor.setValue('rgtrhtyjyu')
+    if (language == 'cpp')
+      editor.setValue(Hellow.cpp)
+    if (language == 'c')
+      editor.setValue(Hellow.c)
     editor.session.setMode("ace/mode/c_cpp");
   } else if (language == 'php') {
+    editor.setValue(Hellow.php)
     editor.session.setMode("ace/mode/php");
   } else if (language == 'python') {
+    editor.setValue(Hellow.python)
     editor.session.setMode("ace/mode/python");
   } else if (language == 'node') {
+    editor.setValue(Hellow.node)
     editor.session.setMode("ace/mode/javascript");
+  } else if (language == 'java') {
+    editor.setValue(Hellow.java)
+    editor.session.setMode("ace/mode/java");
   }
 }
 
