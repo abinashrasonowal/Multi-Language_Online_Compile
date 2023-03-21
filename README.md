@@ -1,6 +1,6 @@
 # Personal Project Online Ide in NodeJs
 
-<img width="1266" alt="Screen Shot 2022-06-19 at 2 18 18 PM" src="https://github.com/abinashrasonowal/online_ide/blob/main/public/ui/images/2022-12-10%20at%2010.10.27.png">
+<img width="1266" alt="Screen Shot 2022-06-19 at 2 18 18 PM" src="https://github.com/abinashrasonowal/online_ide/blob/main/public/ui/images/Screenshot%20(42).png">
 
 Built using:
 
