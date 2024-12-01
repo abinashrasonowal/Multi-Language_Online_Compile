@@ -2,5 +2,5 @@
 
 int main()
 {
-	printf("Hellow world! welcome to online IDE");
+	printf("Hellow world! welcome tod online IDE");
 }
